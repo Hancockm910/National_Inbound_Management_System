@@ -1,0 +1,804 @@
+/*
+<link rel="stylesheet" type="text/css" href="styles.css">
+*/
+
+/*
+*
+*
+*   Updateacc.php
+*
+*
+*/
+@font-face{
+  font-family:"IKEA";
+  src:url("NotoIKEALatin-Bold.ttf");
+  src:url("NotoIKEALatin-BoldItalic.ttf");
+  src:url("NotoIKEALatin-Italic.ttf");
+  src:url("NotoIKEALatin-Regular.ttf");
+}
+
+html{
+  font-family:IKEA !important;
+}
+body{
+  font-family:IKEA !important;
+}
+
+.wrapper{ width: 350px; padding: 20px; }
+.form-container {
+  background-color: lightblue;
+}
+.updateaccLabel{
+    display: inline-block;
+    clear: left;
+    width: 250px;
+    text-align: left;
+}
+input {
+  display: inline-block;
+}
+.accesslevel{
+  float:left;
+  clear:both;
+}
+
+.form-group{
+  clear:left; 
+}
+select{
+    margin-top: 5px;
+    margin-bottom: 20px;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+    border-radius: 12px;
+
+  background-color: blue;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  bottom: 36px;
+  right: 28px;
+  width: 280px;
+}
+.del_button {
+    border-radius: 12px;
+
+  background-color: red;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.7;
+  bottom: 36px;
+  left: 28px;
+  width: 280px;
+}
+/* The popup create form - hidden by default */
+.form-popup {
+    background-color:white;
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  z-index: 9;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5), 0 5px 5px 0 rgba(0, 0, 0, 0.7);
+
+}
+/* The popup delete form - hidden by default */
+.form-popupTwo {
+  border-style: solid;
+  border-width: 5px;
+  background-color:white;
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 15px;
+  z-index: 9;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5), 0 5px 5px 0 rgba(0, 0, 0, 0.7);
+
+}
+/* Add styles to the form container */
+.form-container {
+  /* max-width: 300px; */
+  padding: 10px;
+  background-color: white;
+}
+/* Add styles to the form container */
+.del_form {
+  max-width: 580px;
+  padding: 10px;
+  background-color: white;
+}
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+/* Set a style for the submit/login button */
+.form-container .btn {
+  border-radius: 12px;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+/* Set a style for the submit/login button */
+.del_form .btn {
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+  border-radius: 12px;
+
+}
+/* Add a red background color to the cancel button */
+.del_form .cancel {
+    border-radius: 12px;
+
+  background-color: red;
+}
+/* Add some hover effects to buttons */
+.del_button:hover, .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+.words {
+  padding-left:10px;
+  margin:0px;
+  padding-top:15px;
+  padding-bottom: 10px;
+  background-color: rgb(0, 0, 0);
+}
+.delUserInput{
+  border-color: red;
+  border-radius: 10px;
+  width:100%;
+  padding:10px;
+  margin-bottom:10px;
+  background-color: rgba(224, 224, 224, 0.377);
+}
+
+
+.linktomenu {
+    border-radius: 12px;
+    background-color: #1c87c9;
+    border: none;
+    color: white;
+    padding: 15px 34px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+.updateaccHeader{
+    text-align: center;
+    background-color:lightgrey;
+    padding:20px;
+}
+
+.usertable{
+  padding-top:15px;
+  padding-left: 15px;
+}
+
+.accessKeys{
+  max-width: 30%;
+  padding-top:150px;
+  padding-left: 15px;
+}
+
+.AdminHeader
+{
+    text-align: center;
+    background-color:rgb(254, 191, 0);
+    padding-top:20px;
+    padding-bottom: 20px;
+    color: black;
+    margin-top: 0px;
+    box-shadow: 10px 3px 15px 2px black;
+    z-index: -3;
+}
+
+
+.Welcome
+{
+    text-align: center;
+}
+
+.AdminSidenav {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color:black;
+  overflow-x: hidden;
+  box-shadow: 0px 0px 25px 2px black;
+  zoom: 67%;
+  background-image: url('/NIMS/img/bg.jpg');
+  background-repeat: no-repeat; 
+  background-size: cover;
+}
+
+.AdminSidenav a{
+  padding: 11px 6px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  border-bottom:double;
+  border-top:double;
+
+  height:60px;
+}
+.AdminSidenav .sideBarStore{
+  text-align: center;
+
+}
+.AdminSidenav button{
+  background-color:black;
+  padding: 11px 6px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  border-left: none;
+  border-right: none;
+  border-bottom:double;
+  border-top:double;
+  width:100%;
+  height:60px;
+}
+
+.AdminSidenav a:hover, button:hover {
+  color: #f1f1f1;
+  text-decoration: underline;
+
+}
+
+
+
+
+/*
+*
+*
+*   Staff Menu
+*
+*
+*/
+
+.menuBody{
+  background-image: url("/NIMS/img/Boat.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.menuTable tr:nth-child(even) {background: rgba(0,0,0,.05);}
+.menuTable tr:nth-child(odd) {background: #FFF}
+
+
+.menuHeader
+{
+    text-align: center;
+    background-color:#111;
+    padding-top:20px;
+    padding-bottom: 20px;
+    color: #818181;
+    margin-top: 0px;
+    box-shadow: 10px 3px 15px 2px black;
+}
+
+
+.Welcome
+{
+    text-align: center;
+}
+
+.sidenav {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  box-shadow: 0px 0px 25px 2px black;
+  zoom:67%;
+  background-image: url('/NIMS/img/bg.jpg');
+  background-repeat: no-repeat; 
+  background-size: cover;
+}
+
+.buffer{
+  height:175px;
+}
+
+
+.sidenav a, .sidenav p{
+  padding: 11px 6px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  border-bottom:solid;
+  border-top:solid;
+
+  height:60px;
+}
+.sidenav .sideBarStore{
+  text-align: center;
+
+}
+.sidenav button{
+  background-color: #111;
+  padding: 11px 6px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  border:none;
+  width:100%;
+  height:60px;
+}
+
+.sidenav a:hover, button:hover {
+  color: #f1f1f1;
+  text-decoration: underline;
+
+}
+
+.main {
+  margin-left: 230px; /* Same as the width of the sidenav */
+  padding: 0px 10px;
+  
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+.wait {cursor: progress;}
+
+.storesList {
+  cursor:pointer;
+}
+
+
+.customtable table{
+  margin-top: 80px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+/*
+*
+*
+*   login.php
+*
+*
+*/
+.loginBody {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  background-image: url("/NIMS/img/kinsey-cB8YiJt_0Y0-unsplash.jpg");
+  /* background-size: auto; */
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.header {
+    text-align:center;
+    font-size:18;
+    color: #818181;
+    background-color:black;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+.button:hover {
+  opacity: 0.2;
+}
+/* .formcontainer {
+  padding-left: 30px;;
+  text-align: left;
+  margin: 24px 50px 12px;
+} */
+.container {
+  padding: 16px 0;
+  text-align:left;
+}
+span.psw {
+  float: right;
+  padding-top: 0;
+  padding-right: 15px;
+}
+/* Change styles for span on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+    display: block;
+    float: none;
+  }
+}
+
+.form {
+  top:-15%;
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 760px;
+  margin: auto;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+
+}
+.form input {
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.form .button {
+  text-transform: uppercase;
+  outline: 0;
+  background: rgb(40, 23, 192);
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.form .button:hover,.form .button:active,.form .button:focus {
+  background: rgb(32, 34, 153);
+}
+
+
+/*
+*
+*
+*   report.php
+*
+*
+*/
+
+
+.SelectBox{
+  display: inline-block;
+  max-width: 500px;
+}
+
+/*
+
+Custom Select box
+
+*/
+/*the container must be positioned relative:*/
+.custom-select {
+  font-size: 15px;
+  position: relative;
+  margin:0;
+  padding:0;
+  display: inline-block;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+  height: 100%;
+}
+
+.select-selected {
+  background-color: DodgerBlue;
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 17px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 10px;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+  
+}
+
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: DodgerBlue;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.4);
+
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+#data_tablee{
+  width: 100%;
+}
+
+.homeLink{
+  height:20px;
+  width: 20px;
+  display: inline-block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-right: 10px;
+  padding-left: 5px;
+
+}
+
+.homeLinkImage
+{
+  height:20px;
+  width: 20px;
+}
+
+.homeLink a{
+  color:black;
+  width: 100%;
+  height: auto;
+}
+
+
+/* .homeLink:hover{
+  animation-name: spin;
+  animation-duration: 1000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;  */
+  /* transform: rotate(3deg); */
+   /* transform: rotate(0.3rad); */
+   /* transform: rotate(3grad); */ 
+   /* transform: rotate(.03turn);  */
+/* } */
+
+
+/* @keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+    0%   {color: red;}
+    25%  {color: yellow;}
+    50%  {color: blue;}
+    100% {color: green;}
+}  */
+
+
+.FilterContainer{
+  display: inline-block;
+  width:100%;
+  height: 45px;
+
+}
+
+
+.FilterForm{
+  vertical-align: center;
+  width: 100%;
+  display: inline-block;
+  position: relative;
+  z-index: 2;
+  background: #FFFFFF;
+  margin: auto;
+  padding-left: 10px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  
+}
+
+.FilterForm a{
+  vertical-align: middle;
+  margin-right: 20px;
+}
+
+.filterOne, .filterSubmit, .filterReset{
+  margin-right:15px;
+  height: 45px;
+  display: inline-block;
+}
+
+.filterSubmit, .filterReset{
+  background-color: DodgerBlue;
+  color:white;
+  width:100px; 
+  border:none;
+  vertical-align: middle;
+
+}
+
+
+.reportTable{
+  width: 100%;
+  height: 89%;
+  overflow:auto; 
+}
+html, .reportBody{
+  margin:0;
+  height:100%;
+}
+.reportBody{
+  background-image: url("/NIMS/img/Boat.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+th{
+  background: white;
+  position: sticky;
+  top: 0;
+  box-shadow: 4px 4px 4px -1px rgba(0, 0, 0, 0.4);
+  min-width: 110px;
+  background-color: white;
+  z-index: 2;
+}
+/* tr{
+  max-height: 5px;
+} */
+
+table {
+  text-align: left;
+  position: relative;
+  border-collapse: collapse; 
+  /* border-top-style: solid;
+  border-top-color: black; */
+  background-color: white;
+  z-index: 1;
+}
+
+
+
+#data_tablee thead th {
+  position: -webkit-sticky; /* for Safari */
+  position: sticky;
+  top: 0;
+  background-color: white;
+}
+
+
+#data_tablee tbody td {
+  position: -webkit-sticky; /* for Safari */
+  position: sticky;
+  left: 0;
+}
+
+#data_tablee thead th:first-child {
+  left: 0;
+  top:0;
+  z-index: 3;
+}
+#data_tablee thead th:nth-child(2){
+  left: 110px;
+  top:0;
+  z-index: 3;
+}
+
+#data_tablee tbody  td:first-child {
+  left: 0;
+  z-index: 2;
+  background-color: lightgray;
+  box-shadow: 1px 4px 4px -1px rgba(0, 0, 0, 0.4);
+
+}
+
+#data_tablee tbody  td:nth-child(2) {
+  left: 110px;
+  z-index: 2;
+  background-color: lightgray;
+  box-shadow: 4px 4px 4px -1px rgba(0, 0, 0, 0.4);
+
+}
+
+#data_tablee tbody  td:nth-child(20) {
+  
+}
+
+#data_tablee thead th:nth-child(20){
+  font-weight: bolder;
+  background-color: red; 
+  color:black;
+}
+
+
+
+
+
+
+
+
+p.ppup {
+  display: inline-block;
+  font-size: 100%;
+}
+p.ppup:hover {text-decoration: none; background: #ffffff; z-index: 6; }
+p.ppup span {position: absolute; left: -9999px;
+  margin: 20px 0 0 0px; padding: 3px 3px 3px 3px;
+  border-style:solid; border-color:black; border-width:1px; z-index: 6;}
+p.ppup:hover span {left: 60%; background: #ffffff;} 
+p.ppup span {position: absolute; left: -9999px;
+  margin: 4px 0 0 0px; padding: 3px 3px 3px 3px; 
+  border-style:solid; border-color:DodgerBlue; border-width:3px;}
+p.ppup:hover span {
+  margin: 20px 0 0 170px; 
+  background: #ffffff; 
+  z-index:6;
+  box-shadow: 8px 8px 8px 0px DodgerBlue;
+} 
+
+
+
+
+
